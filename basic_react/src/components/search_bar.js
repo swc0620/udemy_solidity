@@ -1,13 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const SearchBar = () => {
-    const [term, setTerm] = useState();
+class SearchBar extends React.Component {
+    constructor(props) {
+        super(props);
 
-    const onInputChange = (event) => {
-        console.log(event.target.value)
+        this.state = { term: '' };
     };
-    
-    return <input onChange={ onInputChange } />;
+
+    render() {
+        return (
+            <div>
+                <input onChange={(event) => {this.setState({term: event.target.value})}} />
+            </div>
+        );
+    };
 };
+
 
 export default SearchBar;
