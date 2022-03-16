@@ -9,7 +9,8 @@ class App extends React.Component {
     manager: '',
     players: [],
     balance: '',
-    value: ''
+    value: '',
+    message: ''
   };
 
   async componentDidMount() {
@@ -24,16 +25,24 @@ class App extends React.Component {
     event.preventDefault();
 
     const accounts = await web3.eth.getAccounts();
+
+    this.setState({message: 'Waiting on transaction success...'});
+
     await lottery.methods.enter().send({
       from: accounts[0],
       value: web3.utils.toWei(this.state.value, 'ether')
     });
+
+    this.setState({message: 'You have been entered'});
   };
 
   render() {
     return (
       <div>
         <h2>Lottery Contract</h2>
+
+        this.setState : -Wethin n trascation herh=re..xd
+
         <p>
           This contract is managed by {this.state.manager}
           There are currently {this.state.players.length} people entered,
@@ -53,6 +62,10 @@ class App extends React.Component {
           </div>
           <button>Enter</button>
         </form>
+
+        <hr />
+
+        <h1>{this.state.message}</h1>
       </div>
     );
   }
