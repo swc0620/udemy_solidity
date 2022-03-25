@@ -7,7 +7,7 @@ const buildPath = path.resolve(__dirname, 'build');
 fs.removeSync(buildPath);
 
 // Read 'Campaign.sol from the 'contracts' folder
-const campaignPath = path.resolve(__dirname, 'contracts', 'Campaign.sol');
+const campaignPath = path.resolve(__dirname, 'ethereum', 'contracts', 'Campaign.sol');
 const source = fs.readFileSync(campaignPath, 'utf8');
 
 // Compile both contracts with solidity compiler
