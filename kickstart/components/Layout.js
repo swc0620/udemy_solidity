@@ -11,8 +11,7 @@ export default (props) => {
             </Head>
             
             <Header />
-                {props.children}
-            <h1>Im a footer</h1>
+            {props.children}
         </Container>
     );
 };
