@@ -3,7 +3,7 @@ const solc = require('solc');
 const fs = require('fs-extra');
 
 // Delete entire 'build' folder
-const buildPath = path.resolve(__dirname, 'build');
+const buildPath = path.resolve(__dirname, 'ethereum', 'build');
 fs.removeSync(buildPath);
 
 // Read 'Campaign.sol from the 'contracts' folder
