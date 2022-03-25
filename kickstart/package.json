@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
-    "dev": "next dev"
+    "build": "next build",
+    "start": "next start",
+    "dev": "next dev",
+    "test": "mocha"
   },
   "author": "",
   "license": "ISC",
@@ -17,6 +19,7 @@
     "next": "^12.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "semantic-ui-react": "^2.1.2",
     "solc": "^0.4.17",
     "web3": "^1.6.0"
   }
