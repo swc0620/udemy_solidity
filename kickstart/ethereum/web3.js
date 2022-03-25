@@ -1,5 +1,5 @@
 import Web3 from "web3";
-import { infura_key } from '../config';
+import env_setting from '../config';
  
 let web3;
  
@@ -10,7 +10,7 @@ if (typeof window !== "undefined" && typeof window.ethereum !== "undefined") {
 } else {
   // We are on the server *OR* the user is not running metamask
   const provider = new Web3.providers.HttpProvider(
-    infura_key
+    env_setting.infura_key
   );
   web3 = new Web3(provider);
 }
