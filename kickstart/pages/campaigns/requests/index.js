@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from 'semantic-ui-react';
+import { Button, Table } from 'semantic-ui-react';
 import { Link } from '../../../routes';
 import Layout from '../../../components/Layout';
 import Campaign from '../../../ethereum/campaign';
@@ -11,7 +11,7 @@ class RequestIndex extends Component {
         const requestCount = await campaign.methods.getRequestsCount().call();
 
         const requests = await Promise.all(
-            Array(requestCount)
+            Array(parseInt(requestCount))
                 .fill()
                 .map((element, index) => {
                     return campaign.methods.requests(index).call();
@@ -22,6 +22,8 @@ class RequestIndex extends Component {
     };
 
     render() {
+        const { Header, Row, HeaderCell, Body } = Table;
+
         return (
             <Layout>
                 <h3>Requests</h3>
@@ -30,6 +32,19 @@ class RequestIndex extends Component {
                         <Button primary>Add Request</Button>
                     </a>
                 </Link>
+                <Table>
+                    <Header>
+                        <Row>
+                            <HeaderCell>ID</HeaderCell>
+                            <HeaderCell>Description</HeaderCell>
+                            <HeaderCell>Amount</HeaderCell>
+                            <HeaderCell>Recipient</HeaderCell>
+                            <HeaderCell>Approval Count</HeaderCell>
+                            <HeaderCell>Approve</HeaderCell>
+                            <HeaderCell>Finalize</HeaderCell>
+                        </Row>
+                    </Header>
+                </Table>
             </Layout>
         );
     };
